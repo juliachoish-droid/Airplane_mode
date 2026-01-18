@@ -111,7 +111,7 @@ function renderRecommendedRooms(){
     const uid = userKey(u);
     return `
       <a class="rec-avatar"
-         href="Room.html?user=${encodeURIComponent(uid)}&from=library"
+         href="room.html?user=${encodeURIComponent(uid)}&from=library"
          aria-label="${u.name ?? "User"} room"
          style="background-image:url('${u.avatar || ""}')">
         <button class="rec-follow-btn ${followedSet().has(uid) ? "is-active" : ""}"
@@ -144,7 +144,7 @@ function renderFollowedRooms(){
   followedEl.innerHTML = visible.map(u => {
     const uid = userKey(u);
     return `
-      <a class="follow-item" href="Room.html?user=${encodeURIComponent(uid)}&from=library">
+      <a class="follow-item" href="room.html?user=${encodeURIComponent(uid)}&from=library">
         <div class="avatar">
           <button class="content-save-btn is-active"
                   type="button"
@@ -189,7 +189,7 @@ function renderBookmarkedContents(){
     const mine = isMineContent(c);
     return `
       <a class="bm-card${c.type === "music" ? " bm-card--youtube" : ""}"
-         href="Room.html?user=${encodeURIComponent(c.ownerId)}&content=${encodeURIComponent(c.id)}&from=library"
+         href="room.html?user=${encodeURIComponent(c.ownerId)}&content=${encodeURIComponent(c.id)}&from=library"
          style="background-image:url('${c.thumbnail || ""}')">
 
         ${

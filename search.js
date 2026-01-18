@@ -83,7 +83,7 @@ function renderUsers(list) {
 
   list.slice(0, userLimit).forEach(u => {
     usersWrap.insertAdjacentHTML("beforeend", `
-      <a class="room-item" href="Room.html?user=${encodeURIComponent(u.owner_id)}&from=search">
+      <a class="room-item" href="room.html?user=${encodeURIComponent(u.owner_id)}&from=search">
         <div class="avatar">
           ${
             u.avatar
@@ -121,7 +121,7 @@ function renderContents(list) {
   list.slice(0, contentLimit).forEach(c => {
     contentsWrap.insertAdjacentHTML("beforeend", `
       <a class="content-item"
-        href="Room.html?user=${encodeURIComponent(c.ownerId)}&content=${encodeURIComponent(c.id)}&from=search">
+        href="room.html?user=${encodeURIComponent(c.ownerId)}&content=${encodeURIComponent(c.id)}&from=search">
 
         <div class="thumb ${c.type === "music" ? "thumb--youtube" : ""}"
             style="background-image:url('${c.thumbnail || ""}')"></div>

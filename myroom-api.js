@@ -19,7 +19,7 @@ export async function uploadImage(ownerId, docId, file){
 // 콘텐츠 생성
 export async function createContent(ownerId = "me", data = {}) {
   const payload = {
-    ownerId,
+    owner_id,
     ...data,
     created_at: new Date().toISOString(),
   };
@@ -36,6 +36,11 @@ export async function createContent(ownerId = "me", data = {}) {
 
 // 업데이트
 export async function updateContent(id, patch){
+  if (patch?.ownerId && !patch.owner_id) {
+    patch = { ...patch, owner_id: patch.ownerId };
+    delete patch.ownerId;
+  }
+
   const { error } = await supabase
     .from("contents")
     .update(patch)

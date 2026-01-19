@@ -19,7 +19,7 @@ export async function uploadImage(ownerId, docId, file){
 // 콘텐츠 생성
 export async function createContent(ownerId = "me", data = {}) {
   const payload = {
-    owner_id,
+    owner_id: ownerId,
     ...data,
     created_at: new Date().toISOString(),
   };
